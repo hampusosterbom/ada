@@ -1,0 +1,27 @@
+cat > ~/params.json << 'EOF'
+{
+  "project_base": "alma2040_pipeline",
+  "config_map": {
+    "alma.cycle200_v5.cfg":"C200-v5"
+  },
+  "integration_times": ["2h","8h"],
+  "declinations": ["-23d00m00.00"],
+  "center_freq": "343.5GHz",
+  "width": "7.5GHz",
+  "pwv": 1.262,
+  "phasecenter_ra": "12h00m00.00s",
+  "weightings": ["briggs"],
+  "robust_values": [-1,0.5],
+  "uvtaper_values": ["0.0arcsec"],
+  "niter": 7000,
+  "deconvolver": "multiscale",
+  "threshold_factor": 1.5,
+  "fov_arcsec": 0.1229,
+  "sampling_factor": 5,
+  "sky_script": "generate_sky_model.py",
+  "casa_bin": "/home/hampus/casa-6.7.0-31-py3.10.el8/bin/casa",
+  "log_file": "pipeline_test.log",
+  "extra_dirs": []
+}
+
+EOF

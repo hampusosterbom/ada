@@ -1,0 +1,18 @@
+cat > ~/sky_config.json << 'EOF'
+{
+  "ra_center": "12h00m00.00s",
+  "dec_center": "-23d00m00.00",
+  "flux": 0.00027,
+  "freq": "343.5GHz",
+  "n_ring": 8,
+  "radius": 0.0096,
+  "major_beam": "0.0048arcsec",
+  "minor_beam": "0.0048arcsec",
+  "pa_beam": "0deg",
+  "output_base": "eightPlusCenter",
+  "im_shape": [128, 128],
+  "cell_size": 0.00096,
+  "log_file": "sky_test.log"
+}
+
+EOF
