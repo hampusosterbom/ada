@@ -161,7 +161,7 @@ def load_data(args):
     crs_loc = CRS.from_proj4(proj4)
 
     # Load allowed areas from multiple layers
-    poly_layers = ['Regions OSF']  # Add more as needed
+    poly_layers = ['CarlosAllowed','extraRegions']  # Add more as needed
     polys = []
     for layer in poly_layers:
         try:
@@ -428,26 +428,26 @@ def main():
     parser = argparse.ArgumentParser(description="ALMA Pad Optimization")
     parser.add_argument('--cfg_path', default="C:/Users/hampu/Downloads/alma.cycle11.10s.cfg")
     parser.add_argument('--kml_path', default="C:/Users/hampu/OneDrive/Skrivbord/alma2040/configREAL/v5.kml")
-    parser.add_argument('--poly_layer', default="Regions OSF")
+    parser.add_argument('--poly_layer', default="CarlosAllowed")
     parser.add_argument('--regions_kml', default="C:/Users/hampu/OneDrive/Skrivbord/alma2040/configREAL/v5.kml")
     parser.add_argument('--out_new', default="C:/Users/hampu/new_pads_57.cfg")
     parser.add_argument('--out_plus57', default="C:/Users/hampu/OneDrive/Skrivbord/alma2040/regionsV2/alma.cycle11.10.30osf.gg.cfg")
-    parser.add_argument('--n_new', type=int, default=30)
+    parser.add_argument('--n_new', type=int, default=5)
     parser.add_argument('--spacing', type=float, default=25.0)
     parser.add_argument('--min_bl', type=float, default=175)
     parser.add_argument('--R_max', type=float, default=25000)
     parser.add_argument('--inner_radius', type=float, default=4700)
-    parser.add_argument('--favored_weight', type=float, default=30000)
-    parser.add_argument('--include_reuse', action='store_true', default=False)
+    parser.add_argument('--favored_weight', type=float, default=0.6)
+    parser.add_argument('--include_reuse', action='store_true', default=True)
     parser.add_argument('--cable_weight', type=float, default=5e-4)
     parser.add_argument('--inner_ratio', type=float, default=1)
     parser.add_argument('--outer_ratio', type=float, default=1)
     parser.add_argument('--fixed_r_max', type=float, default=50000.0)
     parser.add_argument('--ratio_penalty_weight', type=float, default=0)
     parser.add_argument('--transition_width', type=float, default=5000.0)
-    parser.add_argument('--density_radius', type=float, default=1700.0)
+    parser.add_argument('--density_radius', type=float, default=700.0)
     parser.add_argument('--density_weight', type=float, default=0.35)
-    parser.add_argument('--sigma_b', type=float, default=10000, help="Sigma for Gaussian target distribution")
+    parser.add_argument('--sigma_b', type=float, default=1000, help="Sigma for Gaussian target distribution")
     args = parser.parse_args()
 
     existing_df, existing_pts, ex_weights, ctr_start, allowed_area, region_df = load_data(args)
